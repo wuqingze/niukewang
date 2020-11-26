@@ -11,6 +11,8 @@ void foo(int i, int n, vector<vector<int>> &nums, vector<int> &dp, int count, in
     if(dp.size() == n-1){
         count += nums[i][0];
         min = min<count?min:count;
+        for(auto c:dp) cout<<c<<" ";
+        cout<<i<<"--"<<min<<endl;
         return;
     }
     
