@@ -95,6 +95,7 @@ int f(int n, vector<vector<int>> &nums){
         int t = foo(n, nums, cities, dp, i, i);
         ret = ret<t?ret:t;
         cities.unset(i);
+        break;
     }
     return ret;
 }
