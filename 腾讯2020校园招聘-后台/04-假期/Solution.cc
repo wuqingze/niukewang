@@ -5,17 +5,17 @@
 using namespace std;
 
 enum STATUS{
-    NONE, ONE, TWO
+    NONE, WORKING, EXERCISING
 };
 
-int maxdays(int i, int n, STATUS pre, vector<int> &days, 
-        vector<vector<int>> &dp){
+int maxdays(int i, int n, STATUS pre, vector<int> &working, 
+        vector<int> &exercising, vector<vector<int>> &dp){
     if(i>=n) return 0;
     if(dp[i][pre] != -1) return dp[i][pre];
     if(days[i] == 0){
-        dp[i][pre] = maxdays(i+1, n, STATUS::NONE, days, dp);
+        dp[i][pre] = maxdays(i+1, n, STATUS::NONE, working, exercising, dp);
     }else{
-        if(pre == STATUS::TWO){
+        if(pre == STATUS::WORKING){
             dp[i][pre] = maxdays(i+1, n, STATUS::NONE, days, dp);
         }else if(pre == STATUS::ONE){
             dp[i][pre] = std::max({
